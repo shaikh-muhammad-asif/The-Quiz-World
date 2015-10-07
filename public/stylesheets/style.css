@@ -1,0 +1,139 @@
+body {
+  padding: 0px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+}
+
+a {
+  color: #00B7FF;
+}
+.toolbardemoBasicUsage md-toolbar md-icon.md-default-theme {
+  color: white;
+margin-left: 0px;
+
+}
+/*#icon{*/
+  /*font-size: large;*/
+/*}*/
+.fabSpeedDialdemoBasicUsage .text-capitalize {
+  text-transform: capitalize; }
+.fabSpeedDialdemoBasicUsage .md-fab:hover, .fabSpeedDialdemoBasicUsage .md-fab.md-focused {
+  background-color: #000 !important; }
+.fabSpeedDialdemoBasicUsage p.note {
+  font-size: 1.2rem; }
+.fabSpeedDialdemoBasicUsage .lock-size {
+  min-width: 300px;
+  min-height: 300px;
+  width: 300px;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto; }
+
+.md-toolbar-tools{
+  float: right;
+}
+.login{
+  border: 1px solid;
+  width: 25%;
+  height: 400px;
+  margin: auto;
+  margin-top: 124px;
+}
+#login{
+  border: 1px solid;
+  width: 25%;
+  height: 520px;
+  margin: auto;
+  margin-top: 124px;
+}
+.loginContent{
+  padding: 32px;
+  margin-top: 20px;
+}
+.whiteframedemoBasicUsage md-whiteframe {
+  background: #fff;
+  margin: 50px;
+  padding: 50px;
+}
+.carddemoBasicUsage md-card {
+  min-height: 550px;
+
+}
+
+.radioButtondemoBasicUsage hr {
+  margin-left: -20px;
+  opacity: 0.3; }
+.radioButtondemoBasicUsage md-radio-group {
+  width: 150px; }
+.radioButtondemoBasicUsage p:last-child {
+  padding-bottom: 50px; }
+.radioButtondemoBasicUsage [ng-controller] {
+  padding-left: 20px; }
+.radioButtondemoBasicUsage .radioValue {
+  margin-left: 5px;
+  color: #0f9d58;
+  font-weight: bold;
+  padding: 5px; }
+.radioButtondemoBasicUsage md-icon {
+  margin: 20px;
+  margin-top: 0;
+  width: 128px;
+  height: 128px; }
+.radioButtondemoBasicUsage .ipsum {
+  color: saddlebrown;
+  font-size: 0.9em; }
+#upper-latin {
+  list-style-type: upper-latin;
+}
+.result{
+  font-size: large;
+  color: white;
+}
+/*-------angular chart------*/
+
+.demo-chart:nth-child(1) {
+  color: #ACEC00;
+}
+.demo-chart:nth-child(2) {
+  color: #00BBD6;
+}
+.demo-chart:nth-child(3) {
+  color: #BA65C9;
+}
+.demo-chart:nth-child(4) {
+  color: #EF3C79;
+}
+.main{
+  height: 30%;
+  width: auto;
+
+}
+.input{
+  width: 190px;
+}
+.field{
+  width:100px;;
+  height: 100px;
+}
+.mdl-grid {
+  padding: 0!important;
+}
+
+.mdl-cell {
+  background: #bdbdbd;
+  padding: 30px 0;
+  text-align: center;
+  color: #424242;
+  font-weight: bold;
+}
+.span{
+  margin-left: 12px;
+  margin-top: 17px;
+  margin-bottom: 17px;
+  font-weight: bold;
+  float: left;
+  font-size: 20px;
+}
+.quiz{
+  font-size: 36px;
+}

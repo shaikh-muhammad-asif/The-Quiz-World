@@ -1,0 +1,45 @@
+<md-content>
+    <md-toolbar>
+        <div class="md-toolbar-tools" >
+            <h2 style="margin-left: 40%">
+                <span class="quiz">The Quiz World</span>
+            </h2>
+            <span flex=""></span>
+            <md-button class="md-icon-button" aria-label="Favorite">
+                <i class="fa fa-search fa-2x" style="color: greenyellow;"></i>
+            </md-button>
+            <md-button class="md-icon-button" aria-label="More">
+                <i class="fa fa-ellipsis-v fa-2x"></i>
+            </md-button>
+        </div>
+
+        <md-fab-speed-dial md-open="demo.isOpen"  ng-class="demo.selectedMode" md-direction="{{demo.selectedDirection}}">
+            <md-fab-trigger>
+                <md-button aria-label="menu" >
+                    <i class="fa fa-align-justify fa-2x"></i>
+                </md-button>
+            </md-fab-trigger>
+            <md-fab-actions>
+                <a ui-sref="home"><md-button class="md-raised md-primary"><i class="fa  fa-home fa-lg" ></i> home</md-button></a>
+                <a ui-sref="quizList"><md-button class="md-raised md-primary"><i class="fa "></i>start quaize</md-button></a>
+                <a ui-sref="result"><md-button class="md-raised md-primary">show result</md-button></a>
+                <md-button class="md-raised md-primary">view reports</md-button>
+                <md-button class="md-raised md-primary" ><i class="fa   fa-cog fa-lg"></i>  setting</md-button>
+                <md-button class="md-raised md-primary">contect us</md-button>
+            </md-fab-actions>
+        </md-fab-speed-dial>
+    </md-toolbar>
+    <md-card >
+        <md-card-content >
+            <div class="md-primary" layout="column" layout-fill style="padding-bottom: 32px; margin-top: 30px; width: 70%; margin: auto; font-size: large" >
+                <md-whiteframe class="md-whiteframe-z2" layout="column" class="md-raised md-primary" ng-repeat="i in CourseData" ng-click="select($index)">
+                                <md-button class="md-primary">
+                                    <!--<h3 style="float: left">{{i.Title | uppercase}}</h3>-->
+                                    <span class="span" >{{i.Title | uppercase}}</span ><span style="float: right; margin-top: 10px;">{{i.Course.length}} Q: here</span>
+                                </md-button>
+                </md-whiteframe >
+            </div>
+        </md-card-content>
+    </md-card>
+    {{title[0].name}}
+</md-content>

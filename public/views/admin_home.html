@@ -1,0 +1,301 @@
+<md-content>
+
+    <md-toolbar>
+        <div class="md-toolbar-tools" >
+            <h2 style="margin-left: 40%">
+                <span class="quiz">The Quiz World</span>
+            </h2>
+            <span flex=""></span>
+            <md-button class="md-icon-button" aria-label="Favorite">
+                <i class="fa fa-search fa-2x" style="color: greenyellow;"></i>
+            </md-button>
+            <md-button class="md-icon-button" aria-label="More">
+                <i class="fa fa-ellipsis-v fa-2x"></i>
+            </md-button>
+        </div>
+
+        <md-fab-speed-dial md-open="demo.isOpen"  ng-class="demo.selectedMode" md-direction="{{demo.selectedDirection}}">
+            <md-fab-trigger>
+                <md-button aria-label="menu" >
+                    <i class="fa fa-align-justify fa-2x"></i>
+                </md-button>
+            </md-fab-trigger>
+            <md-fab-actions>
+                <a ui-sref="home"><md-button class="md-raised md-primary"><i class="fa  fa-home fa-lg" ></i> home</md-button></a>
+                <a ui-sref="quizList"><md-button class="md-raised md-primary"><i class="fa "></i>start quaize</md-button></a>
+                <a ui-sref="result"><md-button class="md-raised md-primary">show result</md-button></a>
+                <a ui-sref="reports"><md-button class="md-raised md-primary">view reports</md-button></a>
+                <md-button class="md-raised md-primary"><i class="fa   fa-cog fa-lg"></i>setting</md-button>
+                <md-button class="md-raised md-primary">contect us</md-button>
+            </md-fab-actions>
+        </md-fab-speed-dial>
+    </md-toolbar>
+    <div>
+        <md-content class="md-padding">
+            <md-tabs md-dynamic-height md-border-bottom>
+                <md-tab label="ADD COURSE">
+                    <md-content class="md-padding">
+
+                        <md-card>
+                            <md-card-content>
+                                <!--<div layout="column" layout-fill style="padding-bottom: 32px; margin-top: 30px; width: 70%; margin: auto; font-size: large">-->
+                                    <!--<md-whiteframe class="md-whiteframe-z2" >-->
+                                        <!--<md-input-container flex="flex" layout-margin="layout-margin" >-->
+                                            <!--<md-select layout="column" name="type"  placeholder="{{courcetitle}}"  ng-model="addData[0]._id" >-->
+                                                <!--<md-optgroup style="color:cornflowerblue" label="Please select the course title ." >-->
+                                                    <!--<hr/>-->
+                                                    <!--<md-option ng-model="addData[0]._id" ng-repeat="i in allData" value="{{i.name}}">{{i.name}}</md-option>-->
+                                                <!--</md-optgroup>-->
+                                            <!--</md-select>-->
+                                        <!--</md-input-container>-->
+                                    <!--</md-whiteframe >-->
+                                <!--</div>-->
+                            </md-card-content>
+
+
+                            <md-card-content  >
+                                <div layout="column" layout-fill style="padding-bottom: 32px; margin-top: 30px; width: 70%; margin: auto; font-size: large">
+
+                                    <md-whiteframe class="md-whiteframe-z2" >
+                                        <h4 style="padding-left: 15px"><strong>C:</strong>
+                                            <md-input-container ng-model="addData[0].ques">
+                                                <input  type="text"  placeholder="Add course name (required)" ng-required="true" ng-model="addCourse.name">
+                                            </md-input-container>
+                                        </h4>
+                                    </md-whiteframe >
+
+                                    <md-whiteframe class="md-whiteframe-z2" >
+                                        <h4 style="padding-left: 15px"><strong>Q:</strong>
+                                            <md-input-container ng-model="addData[0].ques">
+                                                <input  type="text"  placeholder="Add question (required)" ng-required="true" ng-model="addCourse.ques">
+                                            </md-input-container>
+                                        </h4>
+                                    </md-whiteframe >
+                                    <md-whiteframe class="md-whiteframe-z2" >
+                                        <md-radio-group ng-model="addquestion[0].value" ng-click="submit()">
+                                            <form>
+                                                <md-content md-theme="docs-dark" layout-padding="" layout="row" layout-sm="column">
+
+
+                                                    <md-radio-button  value="1" class="md-primary"></md-radio-button>
+
+
+                                                    <md-input-container>
+                                                        <label>Option A.</label>
+                                                        <input ng-model="addCourse.opt[0].q1" type="text" ng-required="true" class="input">
+                                                    </md-input-container>
+
+
+                                                    <md-radio-button  value="2" class="md-primary" ng-click="submit()"></md-radio-button>
+
+
+                                                    <md-input-container>
+                                                        <label>Option B.</label>
+                                                        <input ng-model="addCourse.opt[1].q2" type="text" ng-required="true" class="input">
+                                                    </md-input-container>
+
+
+                                                    <md-radio-button  value="3" class="md-primary" ng-click="submit()"></md-radio-button>
+
+
+                                                    <md-input-container>
+                                                        <label>Option C.</label>
+                                                        <input ng-model="addCourse.opt[2].q3" type="text" ng-required="true" class="input">
+                                                    </md-input-container>
+
+
+                                                    <md-radio-button  value="4" class="md-primary" ng-click="submit()" ></md-radio-button>
+
+
+                                                    <md-input-container>
+                                                        <label>Option D.</label>
+                                                        <input ng-model="addCourse.opt[3].q4" type="text" ng-required="true" class="input">
+                                                    </md-input-container>
+
+                                                </md-content>
+                                            </form>
+                                        </md-radio-group>
+                                    </md-whiteframe>
+                                    <md-whiteframe class="md-whiteframe-z2" >
+                                        <md-button  ng-disabled="!addCourse.name || !addCourse.ques || !addCourse.opt[0].q1 || !addCourse.opt[1].q2 || !addCourse.opt[2].q3 || !addCourse.opt[3].q4" ng-click="submited($event)" class="md-raised md-primary" style="float: right " > + Add question</md-button>
+                                    </md-whiteframe>
+                                </div>
+                            </md-card-content>
+
+                        </md-card>
+                        <!--<h1>COURSE:{{addCourse.name}}</h1>-->
+                        <!--<h1>question:{{addCourse.ques}}</h1>-->
+                        <!--<p>a:{{addCourse.opt[0].q1}}</p>value:{{addCourse.opt[0].value1}}-->
+                        <!--<p>b:{{addCourse.opt[1].q2}}</p>value:{{addCourse.opt[1].value2}}-->
+                        <!--<p>c:{{addCourse.opt[2].q3}}</p>value:{{addCourse.opt[2].value3}}-->
+                        <!--<p>d:{{addCourse.opt[3].q4}}</p>value:{{addCourse.opt[3].value4}}-->
+
+                        <!--<h1>{{addquestion.value}}</h1>-->
+                        <!--<h1>{{option1}}</h1>-->
+                    </md-content>
+                </md-tab>
+                <md-tab label="ADD QUESTIONS">
+                    <md-content class="md-padding">
+                        <md-card>
+                            <md-card-content>
+                                <div layout="column" layout-fill style="padding-bottom: 32px; margin-top: 30px; width: 70%; margin: auto; font-size: large">
+                                    <md-whiteframe class="md-whiteframe-z2" >
+                                        <md-input-container flex="flex" layout-margin="layout-margin" >
+                                            <md-select layout="column" name="type"  placeholder="{{courcetitle}}"  ng-model="addData._id" >
+                                                <md-optgroup style="color:cornflowerblue" label="Please select the course title ." >
+                                                    <hr/>
+                                                    <md-option ng-model="addData._id" ng-repeat="i in CourseData" value="{{i._id}}">{{i.Title| uppercase }}</md-option>
+                                                </md-optgroup>
+                                            </md-select>
+                                        </md-input-container>
+                                    </md-whiteframe >
+                                </div>
+                            </md-card-content>
+                            <md-card-content>
+                                <div layout="column" layout-fill style="padding-bottom: 32px; margin-top: 30px; width: 70%; margin: auto; font-size: large">
+                                    <md-whiteframe class="md-whiteframe-z2" >
+                                        <h4 style="padding-left: 15px"><strong>Q:</strong>
+                                            <md-input-container ng-model="addData.ques">
+                                                <input  type="text"  placeholder="add question (required)" ng-required="true" ng-model="addData.ques">
+                                            </md-input-container>
+                                        </h4>
+                                    </md-whiteframe >
+                                    <md-whiteframe class="md-whiteframe-z2" >
+                                        <md-radio-group ng-model="addquestion1[0].value" ng-click="submit1()">
+                                            <form>
+                                                <md-content md-theme="docs-dark" layout-padding="" layout="row" layout-sm="column">
+
+
+                                                    <md-radio-button  value="1" class="md-primary"></md-radio-button>
+
+
+                                                    <md-input-container>
+                                                        <label>Option A.</label>
+                                                        <input ng-model="addData.opt[0].q1" type="text" ng-required="true" class="input">
+                                                    </md-input-container>
+
+
+                                                    <md-radio-button  value="2" class="md-primary" ng-click="submit()"></md-radio-button>
+
+
+                                                    <md-input-container>
+                                                        <label>Option B.</label>
+                                                        <input ng-model="addData.opt[1].q2" type="text" ng-required="true" class="input">
+                                                    </md-input-container>
+
+
+                                                    <md-radio-button  value="3" class="md-primary" ng-click="submit()"></md-radio-button>
+
+
+                                                    <md-input-container>
+                                                        <label>Option C.</label>
+                                                        <input ng-model="addData.opt[2].q3" type="text" ng-required="true" class="input">
+                                                    </md-input-container>
+
+
+                                                    <md-radio-button  value="4" class="md-primary" ng-click="submit()" ></md-radio-button>
+
+
+                                                    <md-input-container>
+                                                        <label>Option D.</label>
+                                                        <input ng-model="addData.opt[3].q4" type="text" ng-required="true" class="input">
+                                                    </md-input-container>
+
+                                                </md-content>
+                                            </form>
+                                        </md-radio-group>
+                                    </md-whiteframe>
+                                    <md-whiteframe class="md-whiteframe-z2" >
+                                        <md-button  ng-disabled="!addData._id ||!addData.ques || !addData.opt[0].q1 || !addData.opt[1].q2 || !addData.opt[2].q3 || !addData.opt[3].q4" ng-click="submited1($event)" class="md-raised md-primary" style="float: right " > + Add course</md-button>
+                                    </md-whiteframe>
+                                </div>
+                            </md-card-content>
+
+                        </md-card>
+                        <!--<h1>{{addData._id | capitalize}}</h1>-->
+                        <!--<h1>{{addquestion1[0].value}}</h1>-->
+                        <!--<h1>question:{{addData.ques | capitalize}}</h1>-->
+                        <!--<p>a:{{addData.opt[0].q1}}</p>value:{{addData.opt[0].value1}}-->
+                        <!--<p>b:{{addData.opt[1].q2}}</p>value:{{addData.opt[1].value2}}-->
+                        <!--<p>c:{{addData.opt[2].q3}}</p>value:{{addData.opt[2].value3}}-->
+                        <!--<p>d:{{addData.opt[3].q4}}</p>value:{{addData.opt[3].value4}}-->
+
+                        <!--<h1>{{addquestion.value}}</h1>-->
+                        <!--<h1>{{option1}}</h1><br/>-->
+                        <!--<div ng-repeat="i in CourseData"> <hr/>{{i.Title}}-->
+                            <!--<p ng-repeat="a in i.Course">{{a.ques}} <br/>-->
+                            <!--<span ng-repeat="x in a.opt">{{x.op}} & {{x.value}}</span>-->
+                            <!--</p>-->
+                        <!--</div>-->
+                        <!--<p>{{CourseData}}</p>-->
+                    </md-content>
+                </md-tab>
+                <md-tab label="DELETE / UPDATE QUESTIONS">
+                    {{remove_C._id}}
+                    <md-content class="md-padding">
+                        <md-card-content>
+                            <div layout="column" layout-fill style="padding-bottom: 32px; margin-top: 30px; width: 70%; margin: auto; font-size: large">
+                                <md-whiteframe class="md-whiteframe-z2" >
+                                    <md-input-container flex="flex" layout-margin="layout-margin" >
+                                        <md-select layout="column" name="type"  placeholder="Please select the delete course."  ng-model="remove_C._id" >
+                                            <md-optgroup style="color:cornflowerblue" label="Please select the delete course." >
+                                                <hr/>
+                                                <md-option ng-model="remove_C._id" ng-repeat="c in CourseData" value="{{c._id}}">{{c.Title| uppercase }}</md-option>
+                                            </md-optgroup>
+                                        </md-select>
+                                    </md-input-container>
+                                </md-whiteframe >
+                                <br/>
+                                <md-button ng-click="submited2()" class="md-warn md-raised md-hue-2" ng-disabled="!remove_C._id">Delete Course</md-button>
+                            </div>
+
+                        </md-card-content>
+                        <!--<h1 class="md-display-2">Tab Three</h1>-->
+                        <md-card-content >
+                            <div class="md-primary" layout="column" layout-fill style="padding-bottom: 32px; margin-top: 30px; width: 70%; margin: auto; font-size: large" >
+                                <md-whiteframe class="md-whiteframe-z2" layout="column" class="md-raised md-primary" ng-repeat="i in CourseData" ng-click="select($index+1)">
+
+                                    <md-button  style="background-color:lightgray" ng-click="visible = !visible">
+                                        <!--<h2 style="float: left">{{i.Title | uppercase}}</h2>-->
+                                        <span class="span" >{{i.Title | uppercase}}</span ><span style="float: right; margin-top: 10px;">{{i.Course.length}} Q: here</span>
+                                    </md-button>
+
+                                    <div ng-repeat="a in i.Course" ng-show="visible">
+                                        <md-content >
+                                            <md-radio-group ng-model="remove_C._id1">
+                                                <md-radio-button  value="{{a._id}}" class="md-primary"></md-radio-button>
+                                            </md-radio-group>
+                                            <!--{{remove_C._id1}}-->
+                                        <h3>Q{{$index+1}} : {{a.ques}}</h3>
+                                        <ol id="upper-latin">
+                                            <li ng-repeat="n in a.opt">
+                                                {{n.op}}<span ng-if="n.value == 0 " style=" background-color:lawngreen; margin-left: 20px; border-radius:5px"> true </span>
+                                            </li>
+                                        </ol>
+                                        <md-button class=" md-raised md-warn"  ng-click="submited3()">delete</md-button>
+                                        <md-button class="md-raised md-primary" >edit</md-button>
+                                        <hr/>
+                                        </md-content>
+                                    </div>
+                                </md-whiteframe >
+                            </div>
+                        </md-card-content>
+                    </md-content>
+                </md-tab>
+                <md-tab label="VIEW USERS">
+                    <md-content class="md-padding">
+                        <h1 class="md-display-2">REMOVE USERS</h1>
+                        <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+                    </md-content>
+                </md-tab>
+                <md-tab label="RESULTS LIST">
+                    <md-content class="md-padding">
+                        <h1 class="md-display-2">REMOVE USERS</h1>
+                        <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+                    </md-content>
+                </md-tab>
+            </md-tabs>
+        </md-content>
+    </div>
+
+</md-content>

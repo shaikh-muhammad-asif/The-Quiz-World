@@ -1,0 +1,132 @@
+<md-content>
+    <md-toolbar>
+        <div class="md-toolbar-tools" >
+            <h2 style="margin-left: 40%">
+                <span class="quiz">The Quaize World</span>
+            </h2>
+            <span flex=""></span>
+            <md-button class="md-icon-button" aria-label="Favorite">
+                <i class="fa fa-search fa-2x" style="color: greenyellow;"></i>
+                <md-tooltip>
+                    Search
+                </md-tooltip>
+            </md-button>
+            <md-button class="md-icon-button" aria-label="More">
+                <md-tooltip>
+                    More
+                </md-tooltip>
+                <i class="fa fa-ellipsis-v fa-2x"></i>
+            </md-button>
+        </div>
+
+        <md-fab-speed-dial md-open="demo.isOpen"  ng-class="demo.selectedMode" md-direction="{{demo.selectedDirection}}">
+            <md-fab-trigger>
+                <md-button aria-label="menu" >
+                    <md-tooltip>
+                        Menu
+                    </md-tooltip>
+                    <i class="fa fa-align-justify fa-2x"></i>
+                </md-button>
+            </md-fab-trigger>
+            <md-fab-actions>
+                <a ui-sref="home"><md-button class="md-raised md-primary"><i class="fa  fa-home fa-lg" ></i> home</md-button></a>
+                <a ui-sref="quizList"><md-button class="md-raised md-primary"><i class="fa "></i>start quaize</md-button></a>
+                <a ui-sref="result"><md-button class="md-raised md-primary">show result</md-button></a>
+                <md-button class="md-raised md-primary">view reports</md-button>
+                <md-button class="md-raised md-primary" ><i class="fa   fa-cog fa-lg"></i>  setting</md-button>
+                <md-button class="md-raised md-primary">contect us</md-button>
+            </md-fab-actions>
+        </md-fab-speed-dial>
+    </md-toolbar>
+
+    <md-card>
+        <md-card-content>
+            <div layout="column" layout-fill style="padding-bottom: 32px; margin-top: 30px; width: 70%; margin: auto; font-size: large">
+                <md-whiteframe class="md-whiteframe-z2" >
+                    <md-input-container flex="flex" layout-margin="layout-margin" >
+                        <md-select layout="column" name="type"  placeholder="{{courcetitle}}"  ng-model="addData[0]._id" >
+                            <md-optgroup style="color:cornflowerblue" label="Please select the course title ." >
+                                <hr/>
+                                <md-option ng-model="addData[0]._id" ng-repeat="i in allData" value="{{i.name}}">{{i.name}}</md-option>
+                            </md-optgroup>
+                        </md-select>
+                    </md-input-container>
+                </md-whiteframe >
+            </div>
+        </md-card-content>
+
+
+        <md-card-content  >
+            <div layout="column" layout-fill style="padding-bottom: 32px; margin-top: 30px; width: 70%; margin: auto; font-size: large">
+                <md-whiteframe class="md-whiteframe-z2" >
+                    <h4 style="padding-left: 15px"><strong>Q:</strong>
+                        <md-input-container ng-model="addData[0].ques">
+                           <input  type="text"  placeholder="add question (required)" ng-required="true" ng-model="addData[0].ques">
+                        </md-input-container>
+                    </h4>
+                </md-whiteframe >
+                <md-whiteframe class="md-whiteframe-z2" >
+                    <md-radio-group ng-model="addquestion[0].value" ng-click="submit()">
+                    <form>
+                        <md-content md-theme="docs-dark" layout-padding="" layout="row" layout-sm="column">
+
+
+                                <md-radio-button  value="1" class="md-primary"></md-radio-button>
+
+
+                            <md-input-container>
+                                <label>Option A.</label>
+                                <input ng-model="addData[0].opt[0].q1" type="text" ng-required="true" class="input">
+                            </md-input-container>
+
+
+                                <md-radio-button  value="2" class="md-primary" ng-click="submit()"></md-radio-button>
+
+
+                            <md-input-container>
+                                <label>Option B.</label>
+                                <input ng-model="addData[0].opt[1].q1" type="text" ng-required="true" class="input">
+                            </md-input-container>
+
+
+                                <md-radio-button  value="3" class="md-primary" ng-click="submit()"></md-radio-button>
+
+
+                            <md-input-container>
+                                <label>Option C.</label>
+                                <input ng-model="addData[0].opt[2].q1" type="text" ng-required="true" class="input">
+                            </md-input-container>
+
+
+                                <md-radio-button  value="4" class="md-primary" ng-click="submit()" ></md-radio-button>
+
+
+                            <md-input-container>
+                                <label>Option D.</label>
+                                <input ng-model="addData[0].opt[3].q1" type="text" ng-required="true" class="input">
+                            </md-input-container>
+
+                        </md-content>
+                    </form>
+                    </md-radio-group>
+                </md-whiteframe>
+                <md-whiteframe class="md-whiteframe-z2" >
+                    <md-button  ng-disabled="!addData[0]._id ||!addData[0].ques || !addData[0].opt[0].q1 || !addData[0].opt[1].q1 || !addData[0].opt[2].q1 || !addData[0].opt[3].q1" ng-click="submited($event)" class="md-raised md-primary" style="float: right " >Submit</md-button>
+                </md-whiteframe>
+            </div>
+        </md-card-content>
+
+    </md-card>
+    <h1>{{addData[0]._id}}</h1>
+    <h1>{{addquestion[0].value}}</h1>
+    <h1>question:{{addData[0].ques}}</h1>
+    <p>a:{{addData[0].opt[0].q1}}</p>value:{{addData[0].opt[0].value}}
+    <p>b:{{addData[0].opt[1].q1}}</p>value:{{addData[0].opt[1].value}}
+    <p>c:{{addData[0].opt[2].q1}}</p>value:{{addData[0].opt[2].value}}
+    <p>d:{{addData[0].opt[3].q1}}</p>value:{{addData[0].opt[3].value}}
+
+<h1>{{addquestion.value}}</h1>
+<h1>{{option1}}</h1>
+</md-content>
+<!--add toast on this page-->
+

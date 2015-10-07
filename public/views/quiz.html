@@ -1,0 +1,59 @@
+<md-content>
+
+    <md-toolbar>
+        <div class="md-toolbar-tools" >
+            <h2 style="margin-left: 40%">
+                <span class="quiz">The Quiz World</span>
+            </h2>
+            <span flex=""></span>
+            <md-button class="md-icon-button" aria-label="Favorite">
+                <i class="fa fa-search fa-2x" style="color: greenyellow;"></i>
+            </md-button>
+            <md-button class="md-icon-button" aria-label="More">
+                <i class="fa fa-ellipsis-v fa-2x"></i>
+            </md-button>
+        </div>
+        <md-fab-speed-dial md-open="demo.isOpen"  ng-class="demo.selectedMode" md-direction="{{demo.selectedDirection}}">
+            <md-fab-trigger>
+                <md-button aria-label="menu" >
+                    <i class="fa fa-align-justify fa-2x"></i>
+                </md-button>
+            </md-fab-trigger>
+            <md-fab-actions>
+                <a ui-sref="home"><md-button class="md-raised md-primary"><i class="fa  fa-home fa-lg" ></i> home</md-button></a>
+                <a ui-sref="quizList"><md-button class="md-raised md-primary"><i class="fa "></i>start quaize</md-button></a>
+                <a ui-sref="result"><md-button class="md-raised md-primary">show result</md-button></a>
+                <md-button class="md-raised md-primary">view reports</md-button>
+                <md-button class="md-raised md-primary" ><i class="fa   fa-cog fa-lg"></i>  setting</md-button>
+                <md-button class="md-raised md-primary">contect us</md-button>
+            </md-fab-actions>
+        </md-fab-speed-dial>
+    </md-toolbar>
+    <md-card>
+        <!--</md-whiteframe>-->
+        <md-whiteframe class="md-whiteframe-z2" >
+            <!--<span>{{ data.group1}}</span> -->
+            <span>{{title[0].Course.length-b}}</span>
+        </md-whiteframe >
+        <md-card-content>
+            <div layout="column" layout-fill style="padding-bottom: 32px; margin-top: 30px; width: 70%; margin: auto; font-size: large" ng-repeat="i in title[0].Course" ng-if="$index+1 == a">
+                <md-whiteframe class="md-whiteframe-z2" >
+                    <h4 style="padding-left: 15px"><strong>Q:</strong> {{i.ques}}</h4>
+                    </md-whiteframe >
+            <md-whiteframe class="md-whiteframe-z2" >
+                <form>
+                    <md-radio-group ng-model="data.group1">
+                        <ol id="upper-latin">
+                            <li ng-repeat="n in i.opt"> <md-radio-button value="{{n.value}}" class="md-primary">{{n.op}}</md-radio-button></li>
+                        </ol>
+                        </md-radio-group>
+                </form>
+            </md-whiteframe>
+                <md-whiteframe class="md-whiteframe-z2" >
+                    <md-button class="md-raised md-primary" style="float: right " ng-disabled="!data.group1" ng-click="next()">Next</md-button>
+                </md-whiteframe >
+            </div>
+        </md-card-content>
+    </md-card>
+<h1>{{result1}}</h1>
+</md-content>

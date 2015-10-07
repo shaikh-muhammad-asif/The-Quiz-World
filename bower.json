@@ -1,0 +1,22 @@
+{
+  "name": "quaizapp",
+  "version": "0.0.0",
+  "authors": [
+    "asifasif <globalstar93@gmail.com>"
+  ],
+  "description": "mean app",
+  "main": "quaiz",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-material": "~0.10.1",
+    "angular-ui-router": "~0.2.15",
+    "font-awesome": "fontawesome#~4.4.0"
+  }
+}
